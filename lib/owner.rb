@@ -1,5 +1,4 @@
 class Owner
-  # code goes here
   
   attr_reader :name, :species
 
@@ -44,7 +43,7 @@ class Owner
   end
 
   def walk_dogs
-    self.dogs.each{|dog| dog.mood = "happy"}
+    dogs.each{|dog| dog.mood = "happy"}
   end
 
   def feed_cats
@@ -52,17 +51,14 @@ class Owner
   end
 
   def sell_pets 
-    pets = self.dogs + self.cats
-
-    pets.each do |pet|
-      pet.mood = "nervous"
-      pet.owner = nil
-    end
+    pets = dogs + cats
+    pets.each {|o| o.mood = "nervous"}
+    pets.each {|o| o.owner = nil}
   end
   
 
     def list_pets
-      "I have #{self.dogs.count} dog(s), and #{self.cats.count} cat(s)."
+      "I have #{dogs.count} dog(s), and #{cats.count} cat(s)."
   end
 
 end
